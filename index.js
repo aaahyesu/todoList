@@ -45,4 +45,9 @@ async function start() {
     }
   });
 }
-start();
+start().catch((err) => {
+  console.error("서버 시작 중 오류 발생:", err);
+  process.exit(1);
+});
+
+export default app;
