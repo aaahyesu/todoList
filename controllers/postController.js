@@ -13,7 +13,8 @@ export const listPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
   try {
-    await Post.create("posts");
+    console.log(req.body);
+    await Post.create(req.body);
     res.redirect("list");
   } catch (err) {
     console.error(err);
@@ -77,7 +78,7 @@ export const updatePost = async (req, res) => {
       res.json({
         success: true,
         message: "수정 완료",
-        redirectUrl: `/detail/${_id.toString()}`,
+        redirectUrl: `/detail/${req.params.id.toString()}`,
       });
     } else {
       res.status(404).json({

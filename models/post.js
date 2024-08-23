@@ -20,7 +20,7 @@ class Post {
   }
 
   static async create(postData) {
-    return await db.collection("post").insertOne(req.body);
+    return await db.collection("posts").insertOne(postData);
   }
 
   static async delete(postId) {
