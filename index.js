@@ -10,8 +10,13 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// 정적 파일 경로 설정
 app.use(express.static(path.join(__dirname, "public")));
+
+// 뷰 엔진 설정 및 뷰 파일 경로 설정
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
